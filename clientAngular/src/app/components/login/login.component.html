@@ -1,0 +1,23 @@
+<div class="container" (ngSubmit)="onSubmit()">
+
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+          
+            You must log in with teacher account
+    <br>
+    
+     
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        username: <input type="text" formControlName="username">
+        <br>
+        password: <input type="password" formControlName="password">
+        <br>
+        <button type="submit">Log in</button>
+    
+    </form> 
+        </div>
+        </div>
+</div>
+
+
