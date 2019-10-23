@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service'
+import { LoginService } from './login.service'
 import { HttpClient } from '@angular/common/http';
-import {HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +12,7 @@ import {HttpHeaders} from '@angular/common/http';
 export class LoginComponent implements OnInit {
 loginForm:FormGroup;
 
-  constructor(private router: Router, private loginService:LoginService,private httpClient:HttpClient) { }
+  constructor(private router: Router, private loginService:LoginService) { }
 
   //cand intru pe pagina de login, atunci trebuie sa ma deloghez
   ngOnInit() {
@@ -21,13 +20,12 @@ loginForm:FormGroup;
   {'username': new FormControl(),
    'password' : new FormControl() 
 });
-  this.loginService.logout();  
+   
 }
-
-  onSubmit(){
+  onSubmit(s:string){
    let usern = this.loginForm.controls['username'].value;
    let passs = this.loginForm.controls['password'].value;
-   this.loginService.onlogin(usern, passs);
+   this.loginService.onlogin('a','b');
   }
 
 }

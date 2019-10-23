@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
+import { StudentComponent } from './components/student/student/student.component';
+import { TeacherComponent } from './components/teacher/teacher/teacher.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    StudentComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,
