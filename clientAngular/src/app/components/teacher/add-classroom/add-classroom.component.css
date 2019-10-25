@@ -1,0 +1,7 @@
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 160px;
+    text-align: left; /*Change to right here if you want it close to the inputs*/
+}

@@ -12,6 +12,7 @@ import {AccordionModule} from 'primeng/accordion';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {MenuItem} from 'primeng/api';
 import { AddClassroomComponent } from './components/teacher/add-classroom/add-classroom.component';
+import { CardsComponentComponent } from './components/teacher/cards-component/cards-component.component';
 
 
 
@@ -21,7 +22,8 @@ import { AddClassroomComponent } from './components/teacher/add-classroom/add-cl
     LoginComponent,
     StudentComponent,
     TeacherComponent,
-    AddClassroomComponent
+    AddClassroomComponent,
+    CardsComponentComponent
   ],
   imports: [
     BrowserModule,

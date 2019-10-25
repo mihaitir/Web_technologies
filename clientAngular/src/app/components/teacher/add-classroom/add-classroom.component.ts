@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Classroom } from '../../models/classroom';
+import { TeacherService } from '../../services/teacher.service';
 
 @Component({
   selector: 'app-add-classroom',
@@ -8,7 +10,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AddClassroomComponent implements OnInit {
 
-  constructor() { }
+  constructor(private teacherService:TeacherService) { }
 
   createClassroom = new FormGroup({
     classroomName: new FormControl(''),
@@ -17,10 +19,15 @@ export class AddClassroomComponent implements OnInit {
 
 
   ngOnInit() {
-  }
+    localStorage.setItem('teacher_id','1');
+    }
 
-  onSubmit(){
-    console.log('here');
+  onSubmit(){ 
+    let classroom = new Classroom;
+    classroom.key = this.createClassroom.get('classroomKey').value;
+    classroom.name = this.createClassroom.get('classroomName').value;
+    this.teacherService.createClassroom(localStorage.getItem('teacher_id'),classroom).subscribe();
+    
   }
 
 }
