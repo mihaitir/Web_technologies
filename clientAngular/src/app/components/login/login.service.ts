@@ -15,6 +15,6 @@ export class LoginService {
 
   onlogin(username:string, password:string){
     localStorage.setItem('isLoggedIn', "true");
-    this.router.navigate(['/student']);
+    this.router.navigate(['/teacher']);
   } 
 }

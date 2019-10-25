@@ -1,0 +1,15 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  
+        <label>
+          Classroom name:
+          <input type="text" formControlName="classroomName">
+        </label>
+      <br>
+        <label>
+          Classroom key:
+          <input type="text" formControlName="classroomKey">
+        </label>
+        <br>
+        <button type="submit">Submit</button>
+      </form>
+
