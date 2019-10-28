@@ -9,8 +9,6 @@ import { LoginComponent } from './components/login/login.component';
 import { StudentComponent } from './components/student/student/student.component';
 import { TeacherComponent } from './components/teacher/teacher/teacher.component';
 import {AccordionModule} from 'primeng/accordion';
-import {SlideMenuModule} from 'primeng/slidemenu';
-import {MenuItem} from 'primeng/api';
 import { AddClassroomComponent } from './components/teacher/add-classroom/add-classroom.component';
 import { CardsComponentComponent } from './components/teacher/cards-component/cards-component.component';
 
