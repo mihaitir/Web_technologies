@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Classroom } from '../../models/classroom';
+import { HttpClient } from '@angular/common/http';
+import { CardService } from './card.service';
 
 @Component({
   selector: 'app-cards-component',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsComponentComponent implements OnInit {
 
-  constructor() { }
+  classrooms:Classroom[] = [];
 
+  constructor(private cardService:CardService){
+
+  }
   ngOnInit() {
+    this.cardService.getAllClassroomByTeacherId(1).subscribe((res:Classroom[])=>{this.classrooms = res; console.log(res)})
+
+    console.log(this.classrooms);
   }
 
 }

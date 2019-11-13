@@ -15,18 +15,20 @@ export class AddClassroomComponent implements OnInit {
   createClassroom = new FormGroup({
     classroomName: new FormControl(''),
     classroomKey: new FormControl(''),
+    classroomDescription: new FormControl('')
   });
 
 
   ngOnInit() {
-    localStorage.setItem('teacher_id','1');
-    }
+    
+  }
 
   onSubmit(){ 
     let classroom = new Classroom;
     classroom.key = this.createClassroom.get('classroomKey').value;
     classroom.name = this.createClassroom.get('classroomName').value;
-    this.teacherService.createClassroom(localStorage.getItem('teacher_id'),classroom).subscribe();
+    classroom.description = this.createClassroom.get('classroomDescription').value;
+    this.teacherService.createClassroom(localStorage.getItem('teacherId'),classroom).subscribe();
     
   }
 

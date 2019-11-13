@@ -11,6 +11,9 @@ import { TeacherComponent } from './components/teacher/teacher/teacher.component
 import {AccordionModule} from 'primeng/accordion';
 import { AddClassroomComponent } from './components/teacher/add-classroom/add-classroom.component';
 import { CardsComponentComponent } from './components/teacher/cards-component/cards-component.component';
+import { CardComponent } from './components/teacher/cards-component/card/card.component';
+import { ClassroomComponent } from './components/teacher/classroom/classroom.component';
+import { LogonComponent } from './components/logon/logon.component';
 
 
 
@@ -21,7 +24,10 @@ import { CardsComponentComponent } from './components/teacher/cards-component/ca
     StudentComponent,
     TeacherComponent,
     AddClassroomComponent,
-    CardsComponentComponent
+    CardsComponentComponent,
+    CardComponent,
+    ClassroomComponent,
+    LogonComponent
   ],
   imports: [
     BrowserModule,

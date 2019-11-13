@@ -1,0 +1,28 @@
+<div class="container">
+
+
+        <div class="row justify-content-center">
+            <div class="col-4">
+              
+                Create new account
+        <br>
+        
+        <form [formGroup]="logonForm" (ngSubmit)="onSubmit()">
+            username: <input type="text" formControlName="username">
+            <br>
+            password: <input type="password" formControlName="password">
+            <br>
+            password2: <input type="password" formControlName="password2">
+            <br>
+            <input
+  type="checkbox"
+  [checked]="isTeacher"
+  (change)="isTeacher = !isTeacher"/>
+            <button type="submit">Create</button>
+        
+        </form> 
+            </div>
+            </div>
+    </div>
+    
+    

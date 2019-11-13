@@ -15,9 +15,15 @@
         <br>
         <button type="submit">Log in</button>
     
+        <button type="button" (click)="onClick()"> New account</button>
+        <div *ngIf="invalidAccount" style="color: red;">
+                Contul este gresit!
+            </div>
     </form> 
         </div>
         </div>
+
+        
 </div>
 
 

@@ -6,13 +6,17 @@ import { AuthGuard} from './auth.guard';
 import { TeacherComponent } from './components/teacher/teacher/teacher.component';
 import { AddClassroomComponent } from './components/teacher/add-classroom/add-classroom.component';
 import { CardsComponentComponent } from './components/teacher/cards-component/cards-component.component';
+import { ClassroomComponent } from './components/teacher/classroom/classroom.component';
+import { LogonComponent } from './components/logon/logon.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'teacher/myClassooms', component: TeacherComponent, canActivate:[AuthGuard]},
-  {path: 'teacher/myClassooms', component: TeacherComponent, canActivate:[AuthGuard],
+  {path: 'logon', component: LogonComponent},
+  {path: 'teacher', component: TeacherComponent, canActivate:[AuthGuard]},
+  {path: 'teacher', component: TeacherComponent, canActivate:[AuthGuard],
     children:[
       {path:'addClassroom', component:AddClassroomComponent, canActivate:[AuthGuard]},
-      //{path:'myClassooms', component:CardsComponentComponent, canActivate:[AuthGuard]}
+      {path:'myClassooms', component:CardsComponentComponent, canActivate:[AuthGuard]},
+      {path:'classroom/:idClassroom', component:ClassroomComponent, canActivate:[AuthGuard]}
     ]
   },
   {path: '**', redirectTo :'/login', pathMatch:'full'}

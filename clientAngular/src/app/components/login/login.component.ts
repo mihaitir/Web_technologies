@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 loginForm:FormGroup;
+invalidAccount : boolean = false;
 
   constructor(private router: Router, private loginService:LoginService) { }
 
@@ -25,7 +26,23 @@ loginForm:FormGroup;
   onSubmit(s:string){
    let usern = this.loginForm.controls['username'].value;
    let passs = this.loginForm.controls['password'].value;
-   this.loginService.onlogin('a','b');
+   this.loginService.onlogin(usern,passs).subscribe(res=>
+    {
+      console.log(res);
+      localStorage.setItem('isLoggedIn', "true");
+      this.router.navigate(['teacher/myClassooms']);  
+      this.loginService.getTeacherByUsername(usern).subscribe(
+        res=>{
+          console.log(res);
+          localStorage.setItem('teacherId','1')}
+      )
+     
+    },
+    err=>{
+      if (err.status === 401) this.invalidAccount = true});
   }
 
+  onClick(){
+    this.router.navigate(['logon']);    
+  }
 }
