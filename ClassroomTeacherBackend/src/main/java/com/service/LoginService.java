@@ -14,7 +14,7 @@ public class LoginService {
 	@Autowired
 	public IAccoutRepository iAccoutRepository;
 	
-	public Account login(String username) {
+	public Optional<Account> login(String username) {
 		return iAccoutRepository.findByUsername(username);
 	}
 }
