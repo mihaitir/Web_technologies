@@ -47,7 +47,9 @@ public class AccountController {
 			if (a.isPresent())
 				return new ResponseEntity<>(HttpStatus.CONFLICT);
 			else
+			{
 				accountService.getiAccoutRepository().save(account);
+			}
 			return new ResponseEntity<>(HttpStatus.CREATED);
 		} catch (HttpClientErrorException hcee) {
 			return new ResponseEntity<String>(hcee.getMessage(), hcee.getStatusCode());
