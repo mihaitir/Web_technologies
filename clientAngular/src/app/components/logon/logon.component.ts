@@ -35,8 +35,9 @@ export class LogonComponent implements OnInit {
     account.password = passs;
     account.isTeacher = this.isTeacher;
     console.log(JSON.stringify(account))
+    
     this.loginService.saveAccount(account).subscribe(
-      // TODO add succesfully message
+      
     );
   }
 }

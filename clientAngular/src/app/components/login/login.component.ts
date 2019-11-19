@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service'
 import { HttpClient } from '@angular/common/http';
+import { Account } from '../models/account';
 
 @Component({
   selector: 'app-login',
@@ -26,13 +27,13 @@ invalidAccount : boolean = false;
   onSubmit(s:string){
    let usern = this.loginForm.controls['username'].value;
    let passs = this.loginForm.controls['password'].value;
-   this.loginService.onlogin(usern,passs).subscribe(res=>
+   this.loginService.onlogin(usern,passs).subscribe( res=>
     {
       console.log(res);
       localStorage.setItem('isLoggedIn', "true");
       this.router.navigate(['teacher/myClassooms']);  
       this.loginService.getTeacherByUsername(usern).subscribe(
-        res=>{
+        (res)=>{
           console.log(res);
           localStorage.setItem('teacherId','1')}
       )

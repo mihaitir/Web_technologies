@@ -1,15 +1,12 @@
 package com.entity;
 
-import java.util.Set;
-
 /**
  * @author mihai
  */
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 
 @Entity
@@ -21,51 +18,57 @@ public class Classroom {
 	private int idClassroom;
 	private String name;
 	private String key;
-
-	public Classroom(int id, String name, String key) {
-		super();
-		this.idClassroom = id;
-		this.name = name;
-		this.key = key;
-	}
-
-	public int getIdClassroom() {
-		return idClassroom;
-	}
-
-	public void setIdClassroom(int id) {
-		this.idClassroom = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
-
+	private String description;
+	
+	
 	public Classroom() {
 		super();
 	}
 
+	public Classroom(int idClassroom, String name, String key, String description) {
+		super();
+		this.idClassroom = idClassroom;
+		this.name = name;
+		this.key = key;
+		this.description = description;
+	}
+	
+	public int getIdClassroom() {
+		return idClassroom;
+	}
+	public void setIdClassroom(int idClassroom) {
+		this.idClassroom = idClassroom;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public String toString() {
-		return "Classroom [id=" + idClassroom + ", name=" + name + ", key=" + key + "]";
+		return "Classroom [idClassroom=" + idClassroom + ", name=" + name + ", key=" + key + ", description="
+				+ description + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + idClassroom;
 		result = prime * result + ((key == null) ? 0 : key.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -81,6 +84,11 @@ public class Classroom {
 		if (getClass() != obj.getClass())
 			return false;
 		Classroom other = (Classroom) obj;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
 		if (idClassroom != other.idClassroom)
 			return false;
 		if (key == null) {
@@ -95,5 +103,8 @@ public class Classroom {
 			return false;
 		return true;
 	}
+
+	
+
 
 }

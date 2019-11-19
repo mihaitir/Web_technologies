@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException;
 
 import com.entity.Teacher;
 import com.repository.ITeacherRepository;
@@ -31,6 +32,18 @@ public class TeacherController {
 	public ResponseEntity<Teacher> getTeacherById(@PathVariable int idTeacher){
 		Teacher teacher = iTeacherRepository.findById(idTeacher).get();
 		return new ResponseEntity<Teacher>(teacher, HttpStatus.FOUND);
+	}
+//	
+	@GetMapping("/teacher/byName/{name}")
+	public ResponseEntity<Teacher> getTeacherByUsername(@PathVariable String name){
+		try {
+			System.out.println(name);
+		Teacher teacher = iTeacherRepository.findByName(name);
+		return new ResponseEntity<Teacher>(teacher, HttpStatus.OK);
+		}catch(HttpClientErrorException hcee) {
+			return new ResponseEntity<Teacher>(hcee.getStatusCode());
+		}
+		
 	}
 	
 	@DeleteMapping("/teacher/{idTeacher}")

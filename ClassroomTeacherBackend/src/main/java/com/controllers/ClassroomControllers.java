@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.entity.Classroom;
+import com.repository.IClassroomRepository;
 import com.service.ClassroomService;
 
 
@@ -21,12 +22,20 @@ public class ClassroomControllers {
 
 	@Autowired
 	ClassroomService classroomService;
+	
+	@Autowired
+	IClassroomRepository iClassroomRepository;
 
 	@GetMapping("/classroom/classes")
 	public ResponseEntity<List<Classroom>> getAllClasses() {
 		return new ResponseEntity<>(classroomService.iClassroomRepository.findAll(), HttpStatus.OK);
 	}
 	
+	@GetMapping("/classroom/classesById/{idClassroom}")
+	public ResponseEntity<Classroom> getClassroomById(@PathVariable Integer idClassroom){
+		return new ResponseEntity<Classroom>(iClassroomRepository.findById(idClassroom).get(), HttpStatus.OK);
+		
+	}
 	@GetMapping("/classroom/classes/{idTeacher}")
 	public ResponseEntity<List<Classroom>> getClassroomById(@PathVariable String idTeacher) {
 	

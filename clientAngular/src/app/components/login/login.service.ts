@@ -36,6 +36,5 @@ export class LoginService {
     const headers = new HttpHeaders()
     .set("Content-Type", "application/json");
     return this.httpClient.post('//localhost:8090/saveAccount',JSON.stringify(account),{headers});
-
   }
 }
