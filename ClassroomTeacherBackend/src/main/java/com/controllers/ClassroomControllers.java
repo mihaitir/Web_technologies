@@ -17,7 +17,7 @@ import com.service.ClassroomService;
 
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin
 public class ClassroomControllers {
 
 	@Autowired
@@ -36,9 +36,9 @@ public class ClassroomControllers {
 		return new ResponseEntity<Classroom>(iClassroomRepository.findById(idClassroom).get(), HttpStatus.OK);
 		
 	}
+	
 	@GetMapping("/classroom/classes/{idTeacher}")
 	public ResponseEntity<List<Classroom>> getClassroomById(@PathVariable String idTeacher) {
-	
 		List<Classroom> classroomList = classroomService.getAllClassroomsForASpecifiedTeacher(idTeacher);
 		return new ResponseEntity<List<Classroom>>(classroomList, HttpStatus.OK);
 	}

@@ -14,6 +14,11 @@ import { CardsComponentComponent } from './components/teacher/cards-component/ca
 import { CardComponent } from './components/teacher/cards-component/card/card.component';
 import { ClassroomComponent } from './components/teacher/classroom/classroom.component';
 import { LogonComponent } from './components/logon/logon.component';
+import { AddTestComponent } from './components/teacher/classroom/add-test/add-test.component';
+import { TestListComponent } from './components/teacher/classroom/test-list/test-list.component';
+import { AddQuestionComponent } from './components/teacher/classroom/add-question/add-question.component';
+import { TestComponent } from './components/teacher/classroom/test/test.component';
+import { TestDetailComponent } from './components/teacher/classroom/test-detail/test-detail.component';
 
 
 
@@ -27,7 +32,12 @@ import { LogonComponent } from './components/logon/logon.component';
     CardsComponentComponent,
     CardComponent,
     ClassroomComponent,
-    LogonComponent
+    LogonComponent,
+    AddTestComponent,
+    TestListComponent,
+    AddQuestionComponent,
+    TestComponent,
+    TestDetailComponent
   ],
   imports: [
     BrowserModule,

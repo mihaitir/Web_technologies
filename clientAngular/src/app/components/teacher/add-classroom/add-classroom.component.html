@@ -1,4 +1,4 @@
-<form [formGroup]="createClassroom">
+<div style="padding-top: 10%;"><form [formGroup]="createClassroom">
 
     <label>
         Classroom name:
@@ -14,10 +14,12 @@
         <label>
             Classroom description:
         </label>
-        <!-- <input class="heighttext" type="text" formControlName="classroomDescription"> -->
+        
         <textarea cols="50" formControlName="classroomDescription"></textarea>
     <br>
     <br>
     <button (click)="onSubmit()">Submit</button>
 
 </form>
+
+</div>

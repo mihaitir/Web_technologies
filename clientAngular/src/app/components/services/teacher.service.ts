@@ -12,7 +12,7 @@ export class TeacherService {
   constructor(private httpClient: HttpClient) { }
 
   getClassroomsByTeacherId() {
-    return this.httpClient.get('/localhost:8090/classroom/classes/t'); //change t... in the future.
+    return this.httpClient.get('//localhost:8090/classroom/classes/t'); //change t... in the future.
   }
 
   createClassroom(idTeacher: string, classroom: Classroom) {

@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.HttpServerErrorException;
 
 import com.entity.Teacher;
 import com.repository.ITeacherRepository;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin
 public class TeacherController {
 
 	@Autowired

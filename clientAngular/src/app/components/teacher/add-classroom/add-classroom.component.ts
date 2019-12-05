@@ -28,8 +28,8 @@ export class AddClassroomComponent implements OnInit {
     classroom.key = this.createClassroom.get('classroomKey').value;
     classroom.name = this.createClassroom.get('classroomName').value;
     classroom.description = this.createClassroom.get('classroomDescription').value;
-    this.teacherService.createClassroom(localStorage.getItem('teacherId'),classroom).subscribe();
-    
+    this.teacherService.createClassroom(localStorage.getItem('teacherId'),classroom).subscribe(res=>{
+      console.log('classroom created')});
   }
 
 }

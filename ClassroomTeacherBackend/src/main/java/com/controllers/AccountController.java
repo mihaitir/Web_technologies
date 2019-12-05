@@ -64,7 +64,7 @@ public class AccountController {
 					Student s = new Student(0, account.getUsername(),"",account.getPassword());
 					iStudentRepository.save(s);
 				}
-				//save into the third table
+				//save into the third table (that contains the accounts with username and password
 				accountService.getiAccoutRepository().save(account);
 			}
 			return new ResponseEntity<>(HttpStatus.CREATED);

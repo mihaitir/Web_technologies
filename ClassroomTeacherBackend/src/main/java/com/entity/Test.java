@@ -12,10 +12,8 @@ public class Test {
 	@Id
 	@GeneratedValue
 	private int idTest;
-	
 	private String name;
 	private int idClassroom;
-	
 	
 	public int getIdClassroom() {
 		return idClassroom;
