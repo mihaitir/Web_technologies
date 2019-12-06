@@ -1,3 +1,9 @@
 <div>
-{{idTest}}
+<div *ngFor="let q of questions">
+   Nume intrebare: {{q.name}}
+   <hr>
+    <div *ngFor="let t of q.option">
+       Varianta {{t.name}} este: {{t.isCorrect}}
+    </div>
+</div>
 </div>

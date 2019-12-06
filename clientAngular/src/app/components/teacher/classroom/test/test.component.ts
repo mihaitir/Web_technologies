@@ -17,7 +17,6 @@ export class TestComponent implements OnInit {
   }
 
   goToTest(){
-    console.log('sosarar')
-    this.router.navigate(['../test'])
+        this.router.navigate(['../test'])
   }
 }

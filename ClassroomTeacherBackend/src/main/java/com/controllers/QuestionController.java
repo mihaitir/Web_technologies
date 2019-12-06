@@ -31,11 +31,13 @@ public class QuestionController {
 	
 	@GetMapping("/question/{idTest}")
 	public ResponseEntity<List<Question>> getAllQuestionsByTestId(@PathVariable Integer idTest){
-		return null;	
+		return new ResponseEntity<List<Question>>(this.iQuestionRepository.findQuestionsByIdTest(idTest), HttpStatus.OK);	
 	}
 	
 	@GetMapping("/question")
 	public ResponseEntity<List<Question>> getAllQuestions(){
 		return new ResponseEntity<List<Question>>(iQuestionRepository.findAll(), HttpStatus.OK);
 	}
+	
+	
 }

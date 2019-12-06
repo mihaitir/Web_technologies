@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.entity.ClassStud;
+import com.entity.ClassTeach;
 import com.entity.Classroom;
+import com.repository.IClassStudRepository;
 import com.repository.IClassroomRepository;
 import com.service.ClassroomService;
 
@@ -25,6 +29,9 @@ public class ClassroomControllers {
 	
 	@Autowired
 	IClassroomRepository iClassroomRepository;
+	
+	@Autowired
+	IClassStudRepository iClassStudRepository;
 
 	@GetMapping("/classroom/classes")
 	public ResponseEntity<List<Classroom>> getAllClasses() {
@@ -32,19 +39,19 @@ public class ClassroomControllers {
 	}
 	
 	@GetMapping("/classroom/classesById/{idClassroom}")
-	public ResponseEntity<Classroom> getClassroomById(@PathVariable Integer idClassroom){
+	public ResponseEntity<Classroom> getClassroomByIdClassroom(@PathVariable Integer idClassroom){
 		return new ResponseEntity<Classroom>(iClassroomRepository.findById(idClassroom).get(), HttpStatus.OK);
 		
 	}
 	
 	@GetMapping("/classroom/classes/{idTeacher}")
-	public ResponseEntity<List<Classroom>> getClassroomById(@PathVariable String idTeacher) {
+	public ResponseEntity<List<Classroom>> getClassroomById(@PathVariable Integer idTeacher) {
 		List<Classroom> classroomList = classroomService.getAllClassroomsForASpecifiedTeacher(idTeacher);
 		return new ResponseEntity<List<Classroom>>(classroomList, HttpStatus.OK);
 	}
 
 	@PostMapping("/classroom/add/{idTeacher}")
-	public ResponseEntity<?> addClassroom(@RequestBody Classroom classroom, @PathVariable String idTeacher) {
+	public ResponseEntity<?> addClassroom(@RequestBody Classroom classroom, @PathVariable Integer idTeacher) {
 		classroomService.iClassroomRepository.save(classroom);
 		classroomService.saveThirdTabel(classroom.getIdClassroom(), idTeacher);
 		return new ResponseEntity<>(null, HttpStatus.CREATED);
@@ -61,5 +68,10 @@ public class ClassroomControllers {
 		this.classroomService.iClassroomRepository.deleteAll();
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
-
+	
+	@GetMapping("/classroom/classTeach/{idClassroom}")
+	public ResponseEntity<List<ClassStud>> getAllClassTeachByClassroom(@PathVariable Integer idClassroom){
+		return new ResponseEntity<List<ClassStud>>(this.iClassStudRepository.findClassStudByIdClassroom(idClassroom), HttpStatus.OK);
+	}
+	
 }

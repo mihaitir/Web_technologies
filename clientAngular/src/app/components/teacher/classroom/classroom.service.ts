@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Test } from '../../models/test';
 import { Question } from '../../models/question';
-import { Option } from '../../models/option';
+import { Option} from '../../models/option';
 
 @Injectable({
   providedIn: 'root'
@@ -62,4 +62,13 @@ export class ClassroomService {
   getTestsByClassroomId(idClassroom:number){
     return this.httpClient.get('http://localhost:8090/test/byClassroom/'+ idClassroom);
   }
+
+  getQuestionsByTestId(idTest:number){
+    return this.httpClient.get('http://localhost:8090/question/' + idTest);
+  }
+
+  getOptionsByQuestionId(idQuestion:number){
+    return this.httpClient.get('http://localhost:8090/options/'+idQuestion);
+  }
+
 }

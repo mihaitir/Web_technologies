@@ -21,9 +21,7 @@ export class TestListComponent implements OnInit {
   this.idClassroom = this.classroomService.getIdClassroom();
   this.classroomService.getTestsByClassroomId(this.idClassroom).subscribe(
     (res:Test[])=>{
-      console.log(res);
       this.tests = res;
-      
     }
   )
   

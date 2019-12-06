@@ -32,6 +32,11 @@ public class OptionController {
 		OptionR o = this.iOptionRepository.getOne(idOption);
 		return new ResponseEntity<OptionR>(o,HttpStatus.OK);
 	}
+	
+	@GetMapping("/options/{idQuestion}")
+	public ResponseEntity<List<OptionR>> getOptionsByIdQuestion(@PathVariable Integer idQuestion){
+		return new ResponseEntity<List<OptionR>>(this.iOptionRepository.findOptionRByidQuestion(idQuestion), HttpStatus.OK);
+	}
 
 	@PostMapping("/option")
 	public ResponseEntity<?> addOption(@RequestBody OptionR option){
