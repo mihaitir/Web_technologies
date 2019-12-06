@@ -11,6 +11,7 @@ import { LogonComponent } from './components/logon/logon.component';
 import { AddTestComponent } from './components/teacher/classroom/add-test/add-test.component';
 import { TestListComponent } from './components/teacher/classroom/test-list/test-list.component';
 import { TestDetailComponent } from './components/teacher/classroom/test-detail/test-detail.component';
+import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'logon', component: LogonComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
       {path:'classroom', component:ClassroomComponent, canActivate:[AuthGuard],children:[
         {path:'testList', component:TestListComponent, canActivate:[AuthGuard]},
         {path:'addTest', component:AddTestComponent, canActivate:[AuthGuard]},
-        {path:'test/:id',component:TestDetailComponent, canActivate:[AuthGuard]}
+        {path:'test/:id',component:TestDetailComponent, canActivate:[AuthGuard]},
+        {path:'students',component:StudentListComponent, canActivate:[AuthGuard]}
       ]}
     ]
   },

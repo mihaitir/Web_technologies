@@ -1,5 +1,6 @@
 package com.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.entity.ClassStud;
 import com.entity.ClassTeach;
 import com.entity.Classroom;
+import com.entity.Student;
 import com.repository.IClassStudRepository;
 import com.repository.IClassroomRepository;
+import com.repository.IStudentRepository;
 import com.service.ClassroomService;
 
 
@@ -32,6 +35,9 @@ public class ClassroomControllers {
 	
 	@Autowired
 	IClassStudRepository iClassStudRepository;
+	
+	@Autowired 
+	IStudentRepository iStudentRepository;
 
 	@GetMapping("/classroom/classes")
 	public ResponseEntity<List<Classroom>> getAllClasses() {
@@ -69,9 +75,21 @@ public class ClassroomControllers {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 	
-	@GetMapping("/classroom/classTeach/{idClassroom}")
+	@GetMapping("/classroom/clasStud/{idClassroom}")
 	public ResponseEntity<List<ClassStud>> getAllClassTeachByClassroom(@PathVariable Integer idClassroom){
 		return new ResponseEntity<List<ClassStud>>(this.iClassStudRepository.findClassStudByIdClassroom(idClassroom), HttpStatus.OK);
 	}
 	
+	@GetMapping("/classroom/getStudentsByIdClassroom/{idClassroom}")
+	public ResponseEntity<List<Student>> getStudentsByIdClassroom(@PathVariable Integer idClassroom){
+		//first we obtain the list with ClassStud where we stored the Student's id
+		//and for every entity from that, we get the Student by his id, and push them into a list
+		List<Student> l = new ArrayList<Student>();
+		
+		ArrayList<ClassStud> list = (ArrayList<ClassStud>) this.iClassStudRepository.findClassStudByIdClassroom(idClassroom);
+		list.stream().forEach( classStud -> {
+			l.add(this.iStudentRepository.findById(classStud.getIdStudent()).get());
+		});
+		return new ResponseEntity<List<Student>>(l,HttpStatus.OK);
+	}
 }

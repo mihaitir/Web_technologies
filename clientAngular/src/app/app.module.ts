@@ -19,6 +19,7 @@ import { TestListComponent } from './components/teacher/classroom/test-list/test
 import { AddQuestionComponent } from './components/teacher/classroom/add-question/add-question.component';
 import { TestComponent } from './components/teacher/classroom/test/test.component';
 import { TestDetailComponent } from './components/teacher/classroom/test-detail/test-detail.component';
+import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
 
 
 
@@ -37,7 +38,8 @@ import { TestDetailComponent } from './components/teacher/classroom/test-detail/
     TestListComponent,
     AddQuestionComponent,
     TestComponent,
-    TestDetailComponent
+    TestDetailComponent,
+    StudentListComponent
   ],
   imports: [
     BrowserModule,

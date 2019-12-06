@@ -71,4 +71,8 @@ export class ClassroomService {
     return this.httpClient.get('http://localhost:8090/options/'+idQuestion);
   }
 
+  getStudentEnroledByClassroomId(idClassroom: number){
+    return this.httpClient.get('http://localhost:8090/classroom/getStudentsByIdClassroom/' + idClassroom);
+  }
+
 }
