@@ -5,6 +5,7 @@ import { LoginService } from './login.service'
 import { HttpClient } from '@angular/common/http';
 import { Account } from '../models/account';
 import { Teacher } from '../models/teacher';
+import { Student } from '../models/student';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +41,14 @@ invalidAccount : boolean = false;
           this.router.navigate(['teacher/myClassooms']); })
       }
       else{
-        console.log('we must implement in the next increment get user')
+        this.loginService.getStudentByUsername(usern).subscribe(
+          (res:Student)=>{
+            console.log(res.idStudent.toString()+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            localStorage.setItem('studentId', res.idStudent.toString());
+            localStorage.setItem('isLoggedIn', "true")
+            this.router.navigate(['student/myClassrooms'])
+          }
+        )
       } 
     },
     err=>{

@@ -15,6 +15,9 @@ public class Test {
 	private String name;
 	private int idClassroom;
 	
+	//private score [0..10]
+	//private done true/false
+	
 	public int getIdClassroom() {
 		return idClassroom;
 	}

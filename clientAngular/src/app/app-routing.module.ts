@@ -1,7 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { StudentComponent } from './components/student/student/student.component';
 import { AuthGuard} from './auth.guard';
 import { TeacherComponent } from './components/teacher/teacher/teacher.component';
 import { AddClassroomComponent } from './components/teacher/add-classroom/add-classroom.component';
@@ -12,6 +11,10 @@ import { AddTestComponent } from './components/teacher/classroom/add-test/add-te
 import { TestListComponent } from './components/teacher/classroom/test-list/test-list.component';
 import { TestDetailComponent } from './components/teacher/classroom/test-detail/test-detail.component';
 import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
+import { StudentComponent } from './components/student/student.component';
+import { ClassroomStudentComponent } from './components/student/classroom-student/classroom-student.component';
+import { AddClassroomStudentComponent } from './components/student/classroom-student/add-classroom-student/add-classroom-student.component';
+
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'logon', component: LogonComponent},
@@ -29,9 +32,14 @@ const routes: Routes = [
       ]}
     ]
   },
+  {path: 'student', component:StudentComponent, canActivate:[AuthGuard]},
+  {path: 'student', component:StudentComponent, canActivate:[AuthGuard], children:[
+    {path:'myClassrooms', component:ClassroomStudentComponent,canActivate:[AuthGuard]},
+    {path:'addClassroomStudent', component:AddClassroomStudentComponent, canActivate:[AuthGuard]}
+  ]},
   {path: '**', redirectTo :'/login', pathMatch:'full'}
   
-];;
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

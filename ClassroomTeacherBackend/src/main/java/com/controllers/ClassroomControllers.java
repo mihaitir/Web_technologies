@@ -92,4 +92,20 @@ public class ClassroomControllers {
 		});
 		return new ResponseEntity<List<Student>>(l,HttpStatus.OK);
 	}
+	
+	@GetMapping("/classroom/getClassroomByKey/{key}")
+	public ResponseEntity<Classroom> findClassroomByKey(@PathVariable String  key){
+		return new ResponseEntity<Classroom>(this.iClassroomRepository.findClassroomByKey(key), HttpStatus.OK);
+	}	
+
+	@GetMapping("/classroom/classeByStudentId/{idStudent}")
+	public ResponseEntity<List<Classroom>> getAllClassesByStudentId(@PathVariable Integer idStudent){
+		ArrayList<ClassStud> l = (ArrayList<ClassStud>) this.iClassStudRepository.findClassStudByIdStudent(idStudent);
+		ArrayList<Classroom> lClassroom = new ArrayList<Classroom>();
+		l.stream().forEach(classStud ->{
+			lClassroom.add(this.iClassroomRepository.findById(classStud.getIdClassroom()).get());
+		});
+			return new ResponseEntity<List<Classroom>>(lClassroom,HttpStatus.OK);
+	}
+	
 }

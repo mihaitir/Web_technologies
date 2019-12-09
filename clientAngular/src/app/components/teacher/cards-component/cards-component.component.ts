@@ -12,7 +12,6 @@ import { Observable } from 'rxjs';
 export class CardsComponentComponent implements OnInit {
 
   classrooms:Classroom[] = [];
-  a: Observable<Classroom[]>;
 
   constructor(private cardService:CardService){
 

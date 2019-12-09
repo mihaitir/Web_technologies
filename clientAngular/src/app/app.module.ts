@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
-import { StudentComponent } from './components/student/student/student.component';
+import { StudentComponent } from './components/student/student.component';
 import { TeacherComponent } from './components/teacher/teacher/teacher.component';
 import {AccordionModule} from 'primeng/accordion';
 import { AddClassroomComponent } from './components/teacher/add-classroom/add-classroom.component';
@@ -20,6 +20,11 @@ import { AddQuestionComponent } from './components/teacher/classroom/add-questio
 import { TestComponent } from './components/teacher/classroom/test/test.component';
 import { TestDetailComponent } from './components/teacher/classroom/test-detail/test-detail.component';
 import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
+import { ClassroomStudentComponent } from './components/student/classroom-student/classroom-student.component';
+import { AddClassroomStudentComponent } from './components/student/classroom-student/add-classroom-student/add-classroom-student.component';
+import {MenuItem} from 'primeng/api';                 //api
+import {DialogModule} from 'primeng/dialog';
+import {ButtonModule} from 'primeng/button';
 
 
 
@@ -39,7 +44,9 @@ import { StudentListComponent } from './components/teacher/classroom/student-lis
     AddQuestionComponent,
     TestComponent,
     TestDetailComponent,
-    StudentListComponent
+    StudentListComponent,
+    ClassroomStudentComponent,
+    AddClassroomStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +56,9 @@ import { StudentListComponent } from './components/teacher/classroom/student-lis
     HttpClientModule,
     BrowserAnimationsModule,
     AccordionModule,
+    DialogModule,
+    ButtonModule
+    
   
   ],
   providers: [],

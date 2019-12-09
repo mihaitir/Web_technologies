@@ -13,4 +13,7 @@ public interface IClassStudRepository  extends JpaRepository<ClassStud, Integer>
 
 	@Query("SELECT cs FROM ClassStud cs WHERE cs.idClassroom = ?1")
 	List<ClassStud> findClassStudByIdClassroom(Integer idClassroom);
+	
+	@Query("SELECT cs FROM ClassStud cs WHERE cs.idStudent = ?1")
+	List<ClassStud> findClassStudByIdStudent(Integer idStudent);
 }
