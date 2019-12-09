@@ -18,7 +18,7 @@ export class StudentService {
   }
 
   public findAllClassStudByIdStudent(idStudent: number){
-    return this.httpClient.get('http://localhost:8090 /classroom/clasStudByIdStudent/'+ idStudent);
+    return this.httpClient.get('http://localhost:8090/classroom/classeByStudentId/'+ idStudent);
   }
 
 }

@@ -21,10 +21,10 @@ import { TestComponent } from './components/teacher/classroom/test/test.componen
 import { TestDetailComponent } from './components/teacher/classroom/test-detail/test-detail.component';
 import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
 import { ClassroomStudentComponent } from './components/student/classroom-student/classroom-student.component';
-import { AddClassroomStudentComponent } from './components/student/classroom-student/add-classroom-student/add-classroom-student.component';
 import {MenuItem} from 'primeng/api';                 //api
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
+import { CardSComponent } from './components/student/classroom-student/card-s/card-s.component';
 
 
 
@@ -46,7 +46,8 @@ import {ButtonModule} from 'primeng/button';
     TestDetailComponent,
     StudentListComponent,
     ClassroomStudentComponent,
-    AddClassroomStudentComponent
+    CardSComponent,
+    
   ],
   imports: [
     BrowserModule,

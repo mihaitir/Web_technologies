@@ -13,7 +13,6 @@ import { TestDetailComponent } from './components/teacher/classroom/test-detail/
 import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
 import { StudentComponent } from './components/student/student.component';
 import { ClassroomStudentComponent } from './components/student/classroom-student/classroom-student.component';
-import { AddClassroomStudentComponent } from './components/student/classroom-student/add-classroom-student/add-classroom-student.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -34,8 +33,7 @@ const routes: Routes = [
   },
   {path: 'student', component:StudentComponent, canActivate:[AuthGuard]},
   {path: 'student', component:StudentComponent, canActivate:[AuthGuard], children:[
-    {path:'myClassrooms', component:ClassroomStudentComponent,canActivate:[AuthGuard]},
-    {path:'addClassroomStudent', component:AddClassroomStudentComponent, canActivate:[AuthGuard]}
+    {path:'myClassrooms', component:ClassroomStudentComponent,canActivate:[AuthGuard]}
   ]},
   {path: '**', redirectTo :'/login', pathMatch:'full'}
   

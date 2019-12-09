@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
+import { Classroom } from '../../models/classroom';
 
 @Component({
   selector: 'app-classroom-student',
@@ -7,17 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClassroomStudentComponent implements OnInit {
 
-  constructor() { }
-
-
-  
-  display: boolean = false;
-
-  showDialog() {
-      this.display = true;
-  }
+  constructor(private studentService:StudentService) { }
+  classrooms:Classroom[] = [];
+  idStudent : number;
 
   ngOnInit() {
+    this.idStudent = +localStorage.getItem('studentId');
+    console.log(localStorage.getItem('idStudent'))
+    this.studentService.findAllClassStudByIdStudent(this.idStudent).subscribe(
+      (res:Classroom[]) =>{
+        this.classrooms = res;
+        console.log(this.classrooms);
+      },
+      err=>{
+        console.log(err);
+      }
+    )  
   }
 
 }

@@ -104,6 +104,7 @@ public class ClassroomControllers {
 		ArrayList<Classroom> lClassroom = new ArrayList<Classroom>();
 		l.stream().forEach(classStud ->{
 			lClassroom.add(this.iClassroomRepository.findById(classStud.getIdClassroom()).get());
+			//System.out.println(this.iClassroomRepository.findById(classStud.getIdClassroom()).get());
 		});
 			return new ResponseEntity<List<Classroom>>(lClassroom,HttpStatus.OK);
 	}

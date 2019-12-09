@@ -14,4 +14,6 @@ public interface IClassroomRepository  extends JpaRepository<Classroom,Integer>{
 
 	@Query("SELECT c FROM Classroom c WHERE c.key = ?1")
 	Classroom findClassroomByKey(String key);
+	
+	
 }
