@@ -9,6 +9,25 @@ export class StudentService {
 
   constructor(private httpClient:HttpClient) { }
 
+  idClassroom: number;
+  idTest: number;
+
+  public setIdClassroom(idClassroom : number){
+    this.idClassroom = idClassroom;
+  }
+
+  public getIdClassroom(){
+    return this.idClassroom;
+  }
+
+  public setIdTest(idTest:number){
+    this.idTest = idTest;
+  }
+
+  public getIdTest(){
+    return this.idTest;
+  }
+
   public enrolToNewClassroom(classStud :ClassStud){
     return this.httpClient.post('http://localhost:8090/student/addNewClassroom', classStud);
   }
@@ -19,6 +38,14 @@ export class StudentService {
 
   public findAllClassStudByIdStudent(idStudent: number){
     return this.httpClient.get('http://localhost:8090/classroom/classeByStudentId/'+ idStudent);
+  }
+
+  public getQuestionsByTestId(idTest:number){
+    return this.httpClient.get('http://localhost:8090/question/' + idTest);
+  }
+
+  public getOptionsByQuestionId(idQuestion:number){
+    return this.httpClient.get('http://localhost:8090/options/'+idQuestion);
   }
 
 }

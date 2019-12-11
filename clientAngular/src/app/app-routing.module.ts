@@ -13,6 +13,8 @@ import { TestDetailComponent } from './components/teacher/classroom/test-detail/
 import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
 import { StudentComponent } from './components/student/student.component';
 import { ClassroomStudentComponent } from './components/student/classroom-student/classroom-student.component';
+import { ClassroomStudentDetailComponent } from './components/student/classroom-student/classroom-student-detail/classroom-student-detail.component';
+import { SolveTestComponent } from './components/student/classroom-student/solve-test/solve-test.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -33,7 +35,11 @@ const routes: Routes = [
   },
   {path: 'student', component:StudentComponent, canActivate:[AuthGuard]},
   {path: 'student', component:StudentComponent, canActivate:[AuthGuard], children:[
-    {path:'myClassrooms', component:ClassroomStudentComponent,canActivate:[AuthGuard]}
+    {path:'myClassrooms', component:ClassroomStudentComponent,canActivate:[AuthGuard]},
+    {path:'myClassroom', component:ClassroomStudentDetailComponent, canActivate:[AuthGuard]},
+    {path:'solveTest', component:SolveTestComponent, canActivate:[AuthGuard]}
+    
+    // {path:'myClassroom', component:}
   ]},
   {path: '**', redirectTo :'/login', pathMatch:'full'}
   

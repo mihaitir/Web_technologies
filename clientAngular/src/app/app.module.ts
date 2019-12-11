@@ -25,6 +25,11 @@ import {MenuItem} from 'primeng/api';                 //api
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
 import { CardSComponent } from './components/student/classroom-student/card-s/card-s.component';
+import { ClassroomStudentDetailComponent } from './components/student/classroom-student/classroom-student-detail/classroom-student-detail.component';
+import { TestSComponent } from './components/student/classroom-student/test-s/test-s.component';
+import { SolveTestComponent } from './components/student/classroom-student/solve-test/solve-test.component';
+import { ResolveQuestionComponent } from './components/student/classroom-student/solve-test/resolve-question/resolve-question.component';
+import {CheckboxModule} from 'primeng/checkbox';
 
 
 
@@ -47,6 +52,10 @@ import { CardSComponent } from './components/student/classroom-student/card-s/ca
     StudentListComponent,
     ClassroomStudentComponent,
     CardSComponent,
+    ClassroomStudentDetailComponent,
+    TestSComponent,
+    SolveTestComponent,
+    ResolveQuestionComponent,
     
   ],
   imports: [
@@ -58,7 +67,8 @@ import { CardSComponent } from './components/student/classroom-student/card-s/ca
     BrowserAnimationsModule,
     AccordionModule,
     DialogModule,
-    ButtonModule
+    ButtonModule,
+    CheckboxModule
     
   
   ],

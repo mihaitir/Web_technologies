@@ -15,7 +15,7 @@ export class ClassroomStudentComponent implements OnInit {
 
   ngOnInit() {
     this.idStudent = +localStorage.getItem('studentId');
-    console.log(localStorage.getItem('idStudent'))
+    console.log(localStorage.getItem('studentId'))
     this.studentService.findAllClassStudByIdStudent(this.idStudent).subscribe(
       (res:Classroom[]) =>{
         this.classrooms = res;
