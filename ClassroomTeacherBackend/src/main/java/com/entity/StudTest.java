@@ -23,6 +23,7 @@ public class StudTest {
 	public void setIdStudTest(int idStudTest) {
 		this.idStudTest = idStudTest;
 	}
+	
 	public int getIdStudent() {
 		return idStudent;
 	}

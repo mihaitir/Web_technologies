@@ -131,8 +131,15 @@ public class ClassroomControllers {
 	}
 	
 	@GetMapping("classroom/getTestsResult/{idStudent}/{idTest}")
-	public ResponseEntity<List<StudTest>> getTestResult(@PathVariable Integer idStudent, @PathVariable Integer idTest){
-		return new ResponseEntity<List<StudTest>>(this.iStudTestRepository.findByIdStudentAndIdTest(idStudent, idTest),HttpStatus.OK);
+	public ResponseEntity<StudTest> getTestResult(@PathVariable Integer idStudent, @PathVariable Integer idTest){
+		System.out.print(idStudent+" "+ idTest);
+		if (this.iStudTestRepository.findByIdStudentAndIdTest(idStudent, idTest).isPresent())
+		return new ResponseEntity<StudTest>(this.iStudTestRepository.findByIdStudentAndIdTest(idStudent, idTest).get(),HttpStatus.OK);
+			else {
+				StudTest empty = new StudTest();
+				empty.setIdStudTest(-1);
+				return new ResponseEntity<StudTest>(empty, HttpStatus.OK);
+			}
 	}
 	
 	

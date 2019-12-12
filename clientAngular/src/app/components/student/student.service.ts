@@ -50,7 +50,11 @@ export class StudentService {
   }
 
   public saveTestResult(studTest : StudTest){
-    return this.httpClient.post('http://localhost:8090/classroom/saveTestResult', studTest);
+    return this.httpClient.post('http://localhost:8090/classroom/saveTestResult', studTest);  
   }
+
+  public getTestResultForTestAndStud(idStudent : number, idTest: number){
+		return this.httpClient.get('http://localhost:8090/classroom/getTestsResult/' + idStudent + '/' +idTest);
+	}
 
 }

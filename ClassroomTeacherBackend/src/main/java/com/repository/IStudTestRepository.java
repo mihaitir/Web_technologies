@@ -1,6 +1,7 @@
 package com.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,5 +12,5 @@ import com.entity.StudTest;
 public interface IStudTestRepository extends JpaRepository<StudTest, Integer> {
 
 	@Query("SELECT st FROM StudTest st WHERE st.idStudent = ?1 AND st.idTest = ?2")
-	List<StudTest> findByIdStudentAndIdTest(Integer idStudent, Integer idTest);
+	Optional<StudTest> findByIdStudentAndIdTest(Integer idStudent, Integer idTest);
 }

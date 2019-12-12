@@ -1,5 +1,14 @@
-<div class="card">
+<div *ngIf="s1===true" class="card" style = "background-color: green;">
+    <p style="padding-left:600px; padding-top: 5px;"> Test: {{test.name}},
+        score: {{studTest.score}}  </p>
+</div>
 
-    <p style="padding-left:600px; padding-top: 5px;" (click)="onAccestTest()" [routerLink]="['../solveTest']"> {{test.name}} </p>
+<div *ngIf="s2===true" class="card" style="background-color:red;">
+    <p style="padding-left:600px; padding-top: 5px;">Test: {{test.name}},
+        score: {{studTest.score}} </p>
+</div>
 
+<div *ngIf="s3===true" class="card">
+    <p style="padding-left:600px; padding-top: 5px;" (click)="onAccestTest()" [routerLink]="['../solveTest']">
+        {{test.name}} is available </p>
 </div>
