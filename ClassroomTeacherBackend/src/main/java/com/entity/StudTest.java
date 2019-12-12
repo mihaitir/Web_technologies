@@ -41,7 +41,7 @@ public class StudTest {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	public boolean isDone() {
+	public boolean getDone() {
 		return done;
 	}
 	public void setDone(boolean done) {

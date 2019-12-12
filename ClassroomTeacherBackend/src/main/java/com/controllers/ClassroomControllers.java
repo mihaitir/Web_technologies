@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.entity.ClassStud;
 import com.entity.ClassTeach;
 import com.entity.Classroom;
+import com.entity.StudTest;
 import com.entity.Student;
 import com.repository.IClassStudRepository;
 import com.repository.IClassroomRepository;
+import com.repository.IStudTestRepository;
 import com.repository.IStudentRepository;
 import com.service.ClassroomService;
 
@@ -38,6 +40,9 @@ public class ClassroomControllers {
 	
 	@Autowired 
 	IStudentRepository iStudentRepository;
+	
+	@Autowired
+	IStudTestRepository iStudTestRepository;
 
 	@GetMapping("/classroom/classes")
 	public ResponseEntity<List<Classroom>> getAllClasses() {
@@ -107,4 +112,28 @@ public class ClassroomControllers {
 		});
 			return new ResponseEntity<List<Classroom>>(lClassroom,HttpStatus.OK);
 	}	
+	
+	@PostMapping("/classroom/saveTestResult")
+	public ResponseEntity<?> saveTestResult(@RequestBody StudTest studTest) {
+		this.iStudTestRepository.save(studTest);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("classroom/getAllStudTestEntity")
+	public ResponseEntity<List<StudTest>> getAllStudTestEntity(){
+		return new ResponseEntity<List<StudTest>>(this.iStudTestRepository.findAll(), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("classroom/deleteTestHistory")
+	public ResponseEntity<?> deleteTestHistory(){
+		this.iStudTestRepository.deleteAll();
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
+	@GetMapping("classroom/getTestsResult/{idStudent}/{idTest}")
+	public ResponseEntity<List<StudTest>> getTestResult(@PathVariable Integer idStudent, @PathVariable Integer idTest){
+		return new ResponseEntity<List<StudTest>>(this.iStudTestRepository.findByIdStudentAndIdTest(idStudent, idTest),HttpStatus.OK);
+	}
+	
+	
 }

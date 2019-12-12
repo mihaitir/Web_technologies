@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ClassStud } from '../models/class-stud';
+import { StudTest } from '../models/stud-test';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,10 @@ export class StudentService {
 
   public getOptionsByQuestionId(idQuestion:number){
     return this.httpClient.get('http://localhost:8090/options/'+idQuestion);
+  }
+
+  public saveTestResult(studTest : StudTest){
+    return this.httpClient.post('http://localhost:8090/classroom/saveTestResult', studTest);
   }
 
 }

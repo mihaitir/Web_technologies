@@ -3,6 +3,7 @@ import { Question } from 'src/app/components/models/question';
 import { StudentService } from '../../../student.service';
 import { Option } from 'src/app/components/models/option';
 import { FormControl } from '@angular/forms';
+import { StudTest } from 'src/app/components/models/stud-test';
 
 @Component({
   selector: 'app-resolve-question',
@@ -51,7 +52,27 @@ export class ResolveQuestionComponent implements OnInit {
     if (this.indexOfCurrentQuestion >= this.questions.length){
       this.name = 'Sfarsit test'
       this.endTest = true;
+      
+      let result = (10*this.numberOfCorrectAnswer) / this.questions.length;
+      console.log('Ai obtiunut nota' + result);
+      console.log(this.studentService.getIdTest() + "@" + localStorage.getItem('studentId'))
+      let studTest : StudTest = new StudTest();
+      studTest.idStudent = +localStorage.getItem('studentId');
+      studTest.idTest = this.studentService.getIdTest();
+      studTest.score = result;
+      studTest.done = true;
+      console.log(studTest);
+      this.studentService.saveTestResult(studTest).subscribe(
+        (res:any)=>{
+          console.log(res)
+        },
+       err=>{
+         console.log(err);
+       }
+      )
+        
     }
+
     else{
       this.name = this.questions[this.indexOfCurrentQuestion].name;
       this.studentService.getOptionsByQuestionId(this.questions[this.indexOfCurrentQuestion].idQuestion).subscribe(
