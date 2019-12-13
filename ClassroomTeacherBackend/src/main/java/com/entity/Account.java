@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "account")
 public class Account {
@@ -35,10 +37,10 @@ public class Account {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isTeacher() {
+	public boolean getIsTeacher() {
 		return isTeacher;
 	}
-	public void setTeacher(boolean isTeacher) {
+	public void setIsTeacher(boolean isTeacher) {
 		this.isTeacher = isTeacher;
 	}
 	
@@ -53,6 +55,13 @@ public class Account {
 		this.password = password;
 		this.isTeacher = isTeacher;
 	}
+	@Override
+	public String toString() {
+		return "Account [id=" + id + ", username=" + username + ", password=" + password + ", isTeacher=" + isTeacher
+				+ "]";
+	}
+	
+	
 	
 	
 }

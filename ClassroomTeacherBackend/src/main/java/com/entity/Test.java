@@ -12,10 +12,11 @@ public class Test {
 	@Id
 	@GeneratedValue
 	private int idTest;
-	
 	private String name;
 	private int idClassroom;
 	
+	//private score [0..10]
+	//private done true/false
 	
 	public int getIdClassroom() {
 		return idClassroom;

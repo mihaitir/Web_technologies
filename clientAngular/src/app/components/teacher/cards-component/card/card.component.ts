@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Classroom } from 'src/app/components/models/classroom';
 import { CardService } from '../card.service';
 import { Router } from '@angular/router';
+import { ClassroomService } from '../../classroom/classroom.service';
 
 @Component({
   selector: 'app-card',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CardComponent implements OnInit {
 
-  constructor(private cardService:CardService, private router:Router) { }
+  constructor(private cardService:CardService, private router:Router, private classroomService:ClassroomService) { }
 
   
   classroom:Classroom;
@@ -20,7 +21,8 @@ export class CardComponent implements OnInit {
   }
 
   onClick(){
-    this.router.navigate(['/teacher/classroom',this.id])
+    this.classroomService.setIdClassroom(this.id);
+    this.router.navigate(['/teacher/classroom/testList'])
   }
 }
 

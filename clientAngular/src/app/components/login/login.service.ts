@@ -31,6 +31,10 @@ export class LoginService {
     return this.httpClient.get('//localhost:8090/teacher/byName/'+username);
   }
 
+  getStudentByUsername(username:string){
+    return this.httpClient.get('http://localhost:8090/student/byName/'+ username);
+  }
+
   saveAccount(account : Account){
 
     const headers = new HttpHeaders()

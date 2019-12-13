@@ -19,12 +19,13 @@ public class ClassroomService {
 	@Autowired
 	public IClassTeachRepository iClassTeachRepository;
 
-	public void saveThirdTabel(int IdClassroom, String IdTeacher) {
+	public void saveThirdTabel(int IdClassroom, Integer IdTeacher) {
 		this.iClassTeachRepository.save(new ClassTeach(IdClassroom, IdTeacher));
+		//this.iClassTeachRepository.save(new ClassTeach(IdClassroom, 1));
 
 	}
 
-	public List<Classroom> getAllClassroomsForASpecifiedTeacher(String idTeacher) {
+	public List<Classroom> getAllClassroomsForASpecifiedTeacher(Integer idTeacher) {
 		List<ClassTeach> l = iClassTeachRepository.findClassTeachByIdTeacher(idTeacher);
 		List<Classroom> classroomList = new ArrayList<Classroom>();
 		for (ClassTeach it : l) {

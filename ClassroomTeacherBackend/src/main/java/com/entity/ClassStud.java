@@ -15,7 +15,7 @@ public class ClassStud {
 	private int idClassStud;
 
 	private int idClassroom;
-	private int idStudet;
+	private int idStudent;
 	public int getIdClassStud() {
 		return idClassStud;
 	}
@@ -28,17 +28,17 @@ public class ClassStud {
 	public void setIdClassroom(int idClassroom) {
 		this.idClassroom = idClassroom;
 	}
-	public int getIdStudet() {
-		return idStudet;
+	public int getIdStudent() {
+		return idStudent;
 	}
-	public void setIdStudet(int idStudet) {
-		this.idStudet = idStudet;
+	public void setIdStudent(int idStudent) {
+		this.idStudent = idStudent;
 	}
 	public ClassStud(int idClassStud, int idClassroom, int idStudet) {
 		super();
 		this.idClassStud = idClassStud;
 		this.idClassroom = idClassroom;
-		this.idStudet = idStudet;
+		this.idStudent = idStudent;
 	}
 	public ClassStud() {
 		super();
@@ -49,7 +49,7 @@ public class ClassStud {
 		int result = 1;
 		result = prime * result + idClassStud;
 		result = prime * result + idClassroom;
-		result = prime * result + idStudet;
+		result = prime * result + idStudent;
 		return result;
 	}
 	@Override
@@ -65,16 +65,13 @@ public class ClassStud {
 			return false;
 		if (idClassroom != other.idClassroom)
 			return false;
-		if (idStudet != other.idStudet)
+		if (idStudent != other.idStudent)
 			return false;
 		return true;
 	}
 	@Override
 	public String toString() {
-		return "ClassStud [idClassStud=" + idClassStud + ", idClassroom=" + idClassroom + ", idStudet=" + idStudet
+		return "ClassStud [idClassStud=" + idClassStud + ", idClassroom=" + idClassroom + ", idStudet=" + idStudent
 				+ "]";
 	}
-	
-	
-	
 }

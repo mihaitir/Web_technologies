@@ -19,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import com.entity.Token;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class TokenController {
 
 	@Autowired

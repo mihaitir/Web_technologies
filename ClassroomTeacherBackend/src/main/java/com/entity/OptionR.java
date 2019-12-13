@@ -6,15 +6,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="varianta")
-public class Option {
+@Table(name="optionr")
+public class OptionR {
 	
 	@Id
 	@GeneratedValue
 	private int idOption;
-	
 	private String name;
-	private boolean typeOption;
+	private int idQuestion;
+	
+	private boolean isCorrect;
+	
+	
+	public boolean getIsCorrect() {
+		return isCorrect;
+	}
+	public void setIsCorrect(boolean isCorrect) {
+		this.isCorrect = isCorrect;
+	}
+	public int getIdQuestion() {
+		return idQuestion;
+	}
+	public void setIdQuestion(int idQuestion) {
+		this.idQuestion = idQuestion;
+	}
+	
 	public int getIdOption() {
 		return idOption;
 	}
@@ -27,29 +43,21 @@ public class Option {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isTypeOption() {
-		return typeOption;
-	}
-	public void setTypeOption(boolean typeOption) {
-		this.typeOption = typeOption;
-	}
-	public Option(int idOption, String name, boolean typeOption) {
+
+	public OptionR(int idOption, String name, boolean typeOption) {
 		super();
 		this.idOption = idOption;
 		this.name = name;
-		this.typeOption = typeOption;
+
 	}
-	@Override
-	public String toString() {
-		return "Option [idOption=" + idOption + ", name=" + name + ", typeOption=" + typeOption + "]";
-	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + idOption;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + (typeOption ? 1231 : 1237);
+		
 		return result;
 	}
 	@Override
@@ -60,7 +68,7 @@ public class Option {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Option other = (Option) obj;
+		OptionR other = (OptionR) obj;
 		if (idOption != other.idOption)
 			return false;
 		if (name == null) {
@@ -68,11 +76,9 @@ public class Option {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (typeOption != other.typeOption)
-			return false;
 		return true;
 	}
-	public Option() {
+	public OptionR() {
 		super();
 	}
 	

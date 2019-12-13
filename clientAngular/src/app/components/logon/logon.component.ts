@@ -17,7 +17,6 @@ export class LogonComponent implements OnInit {
   isTeacher = false;
 
   ngOnInit() {
-    
     this.logonForm = new FormGroup(
       {'username': new FormControl(),
        'password' : new FormControl(),

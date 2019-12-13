@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Classroom } from '../../models/classroom';
 import { HttpClient } from '@angular/common/http';
 import { CardService } from './card.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cards-component',
@@ -16,9 +17,8 @@ export class CardsComponentComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.cardService.getAllClassroomByTeacherId(1).subscribe((res:Classroom[])=>{this.classrooms = res; console.log(res)})
-
-    console.log(this.classrooms);
+    
+    this.cardService.getAllClassroomByTeacherId(+localStorage.getItem('teacherId')).
+    subscribe((res:Classroom[])=>{this.classrooms = res;})
   }
-
 }

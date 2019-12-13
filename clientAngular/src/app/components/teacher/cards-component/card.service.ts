@@ -11,11 +11,12 @@ export class CardService {
   constructor(private httpClient:HttpClient) { }
 
   getAllClassroomByTeacherId(id:number){
-     return this.httpClient.get('//localhost:8090/classroom/classes/1');
+    console.log(id+"!!!!!!");
+     return this.httpClient.get('//localhost:8090/classroom/classes/'+ id);
   }
 
   getClassroomById(id:number){
-    return this.httpClient.get('//localhost:8090/classroom/classesById/'+id);
+    return this.httpClient.get('http://localhost:8090/classroom/classesById/'+id);
   }
 }
 

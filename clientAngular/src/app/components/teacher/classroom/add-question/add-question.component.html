@@ -1,0 +1,19 @@
+For currently test add multiple questions
+<form [formGroup]="formAddQuestion">
+
+<label>Question text</label> <input type="text" formControlName="questionName"> 
+<br>
+<input type="checkbox" [checked]="q1" (change)="q1 = !q1"/> <input type="text" formControlName="answer1">
+<br>
+<input type="checkbox" [checked]="q2" (change)="q2 = !q2" /> <input type="text" formControlName="answer2">
+<br>
+<input type="checkbox" [checked]="q3" (change)="q3 = !q3" /> <input type="text" formControlName="answer3">
+<br>
+<input type="checkbox" [checked]="q4" (change)="q4 = !q4" /> <input type="text" formControlName="answer4">
+
+<br>
+<button (click)="onAddNewQuestion()">Add new question</button>
+<button (click)="onCreateTest()">Create test</button>
+</form>
+
+

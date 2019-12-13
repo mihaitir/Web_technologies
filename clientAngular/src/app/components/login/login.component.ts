@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LoginService } from './login.service'
 import { HttpClient } from '@angular/common/http';
 import { Account } from '../models/account';
+import { Teacher } from '../models/teacher';
+import { Student } from '../models/student';
 
 @Component({
   selector: 'app-login',
@@ -27,17 +29,27 @@ invalidAccount : boolean = false;
   onSubmit(s:string){
    let usern = this.loginForm.controls['username'].value;
    let passs = this.loginForm.controls['password'].value;
-   this.loginService.onlogin(usern,passs).subscribe( res=>
+   this.loginService.onlogin(usern,passs).subscribe( (res:Account)=>
     {
-      console.log(res);
-      localStorage.setItem('isLoggedIn', "true");
-      this.router.navigate(['teacher/myClassooms']);  
+      //here we check if the user is a teacher or a student...
+      if(res.isTeacher){ 
       this.loginService.getTeacherByUsername(usern).subscribe(
-        (res)=>{
-          console.log(res);
-          localStorage.setItem('teacherId','1')}
-      )
-     
+        (res:Teacher)=>{
+          //we use the id of teacher from database
+          localStorage.setItem('teacherId',res.idTeacher.toString())
+          localStorage.setItem('isLoggedIn', "true");
+          this.router.navigate(['teacher/myClassooms']); })
+      }
+      else{
+        this.loginService.getStudentByUsername(usern).subscribe(
+          (res:Student)=>{
+            console.log(res.idStudent.toString()+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            localStorage.setItem('studentId', res.idStudent.toString());
+            localStorage.setItem('isLoggedIn', "true")
+            this.router.navigate(['student/myClassrooms'])
+          }
+        )
+      } 
     },
     err=>{
       if (err.status === 401) this.invalidAccount = true});

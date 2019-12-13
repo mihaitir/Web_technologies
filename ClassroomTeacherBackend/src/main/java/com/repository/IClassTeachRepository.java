@@ -13,5 +13,5 @@ public interface IClassTeachRepository extends JpaRepository<ClassTeach, Integer
 
 	
 	@Query("SELECT ct FROM ClassTeach ct WHERE ct.idTeacher = ?1")
-	List<ClassTeach> findClassTeachByIdTeacher(String idTeacher);
+	List<ClassTeach> findClassTeachByIdTeacher(Integer idTeacher);
 }
