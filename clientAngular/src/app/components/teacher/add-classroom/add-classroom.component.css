@@ -4,4 +4,30 @@ label{
     clear: left;
     width: 160px;
     text-align: left;
+    margin: 25px;
+    font-weight: bold;
+    font-size: 14px;
 }
+
+form input{
+    margin: 25px;
+    border-radius: 10px;
+    border-style: groove;
+}
+form textarea{
+    margin: 25px;
+    border-radius: 10px;
+    border-style: groove;
+
+}
+
+button{
+    margin:25px;
+    width: 20%;
+    height: 35px;
+    border-radius: 10px;
+    font-weight: bold;
+    border-style: groove;
+}
+
+

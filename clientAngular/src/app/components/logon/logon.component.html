@@ -4,22 +4,19 @@
         <div class="row justify-content-center">
             <div class="col-4">
               
-                Create new account
+               <p id="Log-In-Text" align="center"> Create new account</p>
         <br>
         
         <form [formGroup]="logonForm" (ngSubmit)="onSubmit()">
-            username: <input type="text" formControlName="username">
+            <p align="center">Username</p> <input type="text" formControlName="username">
             <br>
-            password: <input type="password" formControlName="password">
+            <p align="center">Password</p> <input type="password" formControlName="password">
             <br>
-            password2: <input type="password" formControlName="password2">
+            <p align="center">Confirm password</p> <input type="password" formControlName="password2">
             <br>
-            <label>Teacher?</label>
-            <input
-  type="checkbox"
-  [checked]="isTeacher"
-  (change)="isTeacher = !isTeacher"/>
-            <button type="submit">Create</button>
+            <label>Sign up as teacher?</label>
+            <input type="checkbox" id="check-box" [checked]="isTeacher" (change)="isTeacher = !isTeacher"/>
+            <button type="submit" id="btn-SignUp">Sign Up</button>
         
         </form> 
             </div>
