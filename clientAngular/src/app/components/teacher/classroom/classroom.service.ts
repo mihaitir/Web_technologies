@@ -75,4 +75,8 @@ export class ClassroomService {
     return this.httpClient.get('http://localhost:8090/classroom/getStudentsByIdClassroom/' + idClassroom);
   }
 
+  getScoresUsingIdStudentAndIdClassroom(idStudent: number, idClassroom : number){
+    return this.httpClient.get('http://localhost:8090/classroom/getTestsResult2/'+idStudent+'/'+idClassroom);
+  }
+
 }

@@ -15,7 +15,25 @@ public class StudTest {
 	
 	private int idStudent;
 	private int idTest;
+	private int idClassroom;
 	private int score;
+	
+	
+	public StudTest(int idStudTest, int idStudent, int idTest, int idClassroom, int score, boolean done) {
+		super();
+		this.idStudTest = idStudTest;
+		this.idStudent = idStudent;
+		this.idTest = idTest;
+		this.idClassroom = idClassroom;
+		this.score = score;
+		this.done = done;
+	}
+	public int getIdClassroom() {
+		return idClassroom;
+	}
+	public void setIdClassroom(int idClassroom) {
+		this.idClassroom = idClassroom;
+	}
 	private boolean done;
 	public int getIdStudTest() {
 		return idStudTest;

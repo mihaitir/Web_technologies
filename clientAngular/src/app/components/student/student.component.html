@@ -1,36 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; height:8%; width: 100%;">
 
-        <ul class="navbar-nav">
-          <li class="nav-item ">
-            <a class="nav-link" [routerLink]="['/student/myClassrooms']">Home <span class="sr-only">(current)</span></a>
-          </li>         
-          <li class="nav-item">
-              <a class="nav-link pointer" (click)="launchModal()"> "ADD NEW Classroom" </a> </li>
+  <ul class="navbar-nav">
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/student/myClassrooms']">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link pointer" (click)="launchModal()">Add Classroom </a> </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Account</a>
-          </li>  
-        
-          <div class="nav-item">
-            <a class="nav-link" [routerLink]="['/']">Logout</a>
-          </div>
-        </ul>
-    </nav>
-    <div style="padding-top: 60px;">
-        <router-outlet> </router-outlet>
+    <div class="nav-item">
+      <a class="nav-link" [routerLink]="['/']">Logout</a>
     </div>
+  </ul>
+</nav>
+<div style="padding-top: 60px;">
+  <router-outlet> </router-outlet>
+</div>
 
-  
-    <p-dialog header="Add new classroom" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
-    [maximizable]="true" [baseZIndex]="10000">
-  
-        <form [formGroup]="createClassroom">         
-            <label>
-                Classroom key:
-            </label>
-            <input type="text" formControlName="classroomKey">
-            <br>
-            <button style="margin-right: 10px;" pButton label = "Add" icon="pi pi-check" (click)="onSubmit()"></button>
-            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Close" class="ui-button-secondary"></button>
-        </form>   
-    </p-dialog>
+
+<p-dialog header="Add new classroom" [(visible)]="display" [modal]="true" [responsive]="true"
+  [style]="{width: '350px', minWidth: '200px'}" [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+
+  <form [formGroup]="createClassroom">
+    <label>
+      Classroom key:
+    </label>
+    <input type="text" formControlName="classroomKey">
+    <br>
+    <button style="margin-right: 10px;" pButton label="Add" icon="pi pi-check" (click)="onSubmit()"></button>
+    <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Close"
+      class="ui-button-secondary"></button>
+  </form>
+</p-dialog>

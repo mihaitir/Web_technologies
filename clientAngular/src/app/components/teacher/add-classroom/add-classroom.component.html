@@ -1,25 +1,26 @@
-<div style="padding-top: 10%;"><form [formGroup]="createClassroom">
+<div style="padding-top: 10%;">
+    <form [formGroup]="createClassroom">
 
-    <label>
-        Classroom name:
-    </label>
-    <input type="text" formControlName="classroomName">
+        <label>
+            Classroom name:
+        </label>
+        <input type="text" formControlName="classroomName">
 
-    <br>
-    <label>
-        Classroom key:
-    </label>
-    <input type="text" formControlName="classroomKey">
-    <br>
+        <br>
+        <label>
+            Classroom key:
+        </label>
+        <input type="text" formControlName="classroomKey">
+        <br>
         <label>
             Classroom description:
         </label>
-        
-        <textarea cols="50" formControlName="classroomDescription"></textarea>
-    <br>
-    <br>
-    <button (click)="onSubmit()">Submit</button>
 
-</form>
+        <textarea cols="50" formControlName="classroomDescription"></textarea>
+        <br>
+        <br>
+        <button (click)="onSubmit()">Submit</button>
+
+    </form>
 
 </div>

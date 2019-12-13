@@ -30,6 +30,8 @@ import { TestSComponent } from './components/student/classroom-student/test-s/te
 import { SolveTestComponent } from './components/student/classroom-student/solve-test/solve-test.component';
 import { ResolveQuestionComponent } from './components/student/classroom-student/solve-test/resolve-question/resolve-question.component';
 import {CheckboxModule} from 'primeng/checkbox';
+import {TableModule} from 'primeng/table';
+
 
 
 
@@ -68,7 +70,9 @@ import {CheckboxModule} from 'primeng/checkbox';
     AccordionModule,
     DialogModule,
     ButtonModule,
-    CheckboxModule
+    CheckboxModule,
+    TableModule
+
     
   
   ],

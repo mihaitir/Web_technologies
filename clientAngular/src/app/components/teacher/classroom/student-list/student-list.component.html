@@ -2,6 +2,22 @@
 <div>
     In this classroom are enroled the following students:
 </div>
-<div *ngFor="let student of students">
-    {{student.name}}    
+
+<div style="padding-top: 60px;">
+        <p-table [value]="tableInfo">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Average Score</th>
+                       
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-t>
+                    <tr>
+                        <td>{{t.name}}</td>
+                        <td>{{t.score}}</td>
+                            
+                    </tr>
+                </ng-template>
+            </p-table>
 </div>

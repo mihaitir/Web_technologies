@@ -60,6 +60,7 @@ export class ResolveQuestionComponent implements OnInit {
       studTest.idStudent = +localStorage.getItem('studentId');
       studTest.idTest = this.studentService.getIdTest();
       studTest.score = result;
+      studTest.idClassroom = this.studentService.getIdClassroom();
       studTest.done = true;
       console.log(studTest);
       this.studentService.saveTestResult(studTest).subscribe(
