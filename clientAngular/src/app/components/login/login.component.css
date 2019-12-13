@@ -56,3 +56,8 @@ form button:hover{
     background-image: linear-gradient(to right, crimson , #3d7df5);
     transition: background-image 0.4s ease;
 }
+
+.back{
+    background-image: linear-gradient(to right, crimson , #3d7df5);
+    height: 100%;
+}
