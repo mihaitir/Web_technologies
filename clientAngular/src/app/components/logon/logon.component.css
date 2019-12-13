@@ -1,0 +1,60 @@
+#Log-In-Text{
+    color: #0943ae;
+    text-shadow: 2px 1px 2px #5e7cb6;
+    font-weight: bold;
+    font-size: 23px;
+    margin-bottom: 18px;
+    margin-top: 30px;
+}
+
+.col-4{
+    background-color: #93c9ff;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+form input{
+    width: 100%;
+    margin-bottom: 35px;
+    height: 40px;
+    border-radius: 18px;
+    border: 0px;
+}
+
+form p{
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+label{
+    margin-bottom: 3px;
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#check-box{
+    width: 15%;
+    height: 20px;
+}
+
+form button{
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 6px;
+    border-radius: 18px;
+    border: 0px;
+    background-image: linear-gradient(to right,#0943ae , #3d7df5);
+    color: #fff;
+    font-weight: bold;
+}
+
+form button:hover{
+    background-image: linear-gradient(to right, crimson , #3d7df5);
+    transition: background-image 0.4s ease;
+}
+
+#btn-SignUp{
+    margin-bottom: 30px;
+}

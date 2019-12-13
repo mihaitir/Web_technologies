@@ -1,0 +1,58 @@
+#log-in-text{
+    color: #0943ae;
+    text-shadow: 2px 1px 2px #5e7cb6;
+    font-weight: bold;
+    font-size: 19px;
+    margin-bottom: 18px;
+    margin-top: 30px;
+}
+
+form input{
+    width: 100%;
+    margin-bottom: 35px;
+    height: 40px;
+    border-radius: 18px;
+    border: 0px;
+}
+
+form p{
+    margin-bottom: 3px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.col-4{
+    background-color: #93c9ff;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+form button{
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 6px;
+    border-radius: 18px;
+    border: 0px;
+    background-image: linear-gradient(to right,#0943ae , #3d7df5);
+    color: #fff;
+    font-weight: bold;
+}
+
+#btn-account{
+    float: right;
+    margin: 0px;
+}
+
+#warning{
+    color: #c60618; 
+    margin-bottom: 30px;
+    font-size: 18px;
+    background-color: #f8d7da;
+    padding: 8px 8px 8px 20px;
+    border-radius: 18px;
+}
+
+form button:hover{
+    background-image: linear-gradient(to right, crimson , #3d7df5);
+    transition: background-image 0.4s ease;
+}
