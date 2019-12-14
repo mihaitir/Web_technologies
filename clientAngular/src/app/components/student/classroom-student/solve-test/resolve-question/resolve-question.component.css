@@ -1,5 +1,14 @@
 .cardQ{
     height: 400px;
     width: 400px;
+    margin: 0px 0px 15px 20px;
    
+}
+
+#btn-next{
+    background-color: #cccccc;
+    width: 30%;
+    padding: 8px 15px;
+    border-radius: 18px;
+    font-weight: bold;
 }

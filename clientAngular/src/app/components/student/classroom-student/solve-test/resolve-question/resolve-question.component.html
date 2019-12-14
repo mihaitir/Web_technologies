@@ -6,9 +6,7 @@
         <div class="ui-g-12"><p-checkbox  [value]="v3" [label]="v3" [(ngModel)]="selectedValues"></p-checkbox></div>
         <div class="ui-g-12"><p-checkbox  [value]="v4" [label]="v4" [(ngModel)]="selectedValues"></p-checkbox></div>
     </div>
-<p *ngIf="endTest === false" (click)="nextQuestion()">Next</p>
+<p id="btn-next" align="center" *ngIf="endTest === false" (click)="nextQuestion()">NEXT</p>
 </div>
 
-<div *ngIf="endTest === true">
-TEST ENDED  
-</div>
+<!-- ??? <div *ngIf="endTest === true" style="font-weight: bold;">TEST ENDED </div>-->
