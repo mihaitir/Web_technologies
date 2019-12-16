@@ -8,7 +8,7 @@
 }
 
 .col-4{
-    background-color: #93c9ff;
+    background-color: #cfdffc;
     margin-top: 40px;
     border-radius: 8px;
 }
@@ -57,4 +57,9 @@ form button:hover{
 
 #btn-SignUp{
     margin-bottom: 30px;
+}
+
+.back{
+    background-image: linear-gradient(to right, crimson , #3d7df5);
+    height: 100%;
 }

@@ -1,0 +1,23 @@
+form{
+    margin-top: 25px;
+}
+
+p{
+    margin-top: 30px;
+}
+
+form input{
+    border-radius: 8px;
+    border-style: groove;
+    margin: 10px 0px 5px 10px;
+}
+
+form button{
+    margin: 25px 8px 0px 10px;
+    border-radius: 8px;
+    border-style: groove;
+    font-size: 20px;
+    padding: 5px 20px;
+    font-weight: bold;
+
+}

@@ -1,1 +1,26 @@
 .pointer {cursor: pointer;}
+
+.navbar{
+    display: block;
+    position: fixed; 
+    width: 100%;
+    padding: 15px 10px;
+}
+
+.nav-item .nav-link{
+    color: black;
+}
+
+.nav-item .nav-link:hover{
+    color: #595959;
+}
+
+.bg-light{
+    background-color: #cccccc !important;
+}
+
+.navbar .navbar-nav .nav-item{
+    margin: 0px 7%;
+    font-weight: bold;
+    font-size: 20px;
+}
