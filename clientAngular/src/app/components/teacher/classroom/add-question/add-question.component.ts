@@ -37,7 +37,6 @@ export class AddQuestionComponent implements OnInit {
     q.name = this.formAddQuestion.controls['questionName'].value;
     q.idTest = this.classroomService.getIdCurrentTest();
 
-    console.log(JSON.stringify(q));
     this.classroomService.saveQuestion(q).subscribe((res: Question) => {
       this.classroomService.setIdCurrentQuestion(res.idQuestion);
       let option: Option = new Option();
@@ -45,11 +44,8 @@ export class AddQuestionComponent implements OnInit {
       option.name = this.formAddQuestion.controls.answer1.value;
       option.isCorrect = this.q1;
 
-      console.log(JSON.stringify(option));
       this.classroomService.saveOption(option).subscribe(res=>{console.log('da')},err=>{console.log(err)});
 
-      //save the second option
-      console.log(JSON.stringify(option));  
       option.name = this.formAddQuestion.controls.answer2.value;
       option.isCorrect = this.q2;
       this.classroomService.saveOption(option).subscribe();

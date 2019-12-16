@@ -1,12 +1,12 @@
 
 
      
-    <form [formGroup]="addTestForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="addTestForm">
         name: <input type="text" formControlName="name">
         <br>
        
         <button type="button" (click)="onClick()"> Add test</button>
-       
+    
     </form> 
       
 <div *ngIf="displayAddQuestion">

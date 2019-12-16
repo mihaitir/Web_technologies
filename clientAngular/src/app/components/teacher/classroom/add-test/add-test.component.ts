@@ -27,11 +27,8 @@ export class AddTestComponent implements OnInit {
     let t: Test = new Test();
    t.idClassroom = this.classroomService.getIdClassroom();
    t.name = this.addTestForm.controls['name'].value;
-    console.log(JSON.stringify(t));
     this.classroomService.saveTest(t).subscribe((res:Test)=>
       {
-        console.log('Test added');
-        console.log(res);
         this.classroomService.setIdCurrentTest(res.idTest);
       },
        err=>{console.log(err)});

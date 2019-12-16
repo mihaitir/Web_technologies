@@ -1,5 +1,8 @@
 <div>
-    <div *ngFor="let test of tests">
+    <div *ngIf="numberOfTest === 0">
+        There is no tests in this classrooom for the momment :( 
+    </div>
+    <div *ngFor="let test of tests; trackBy: trackByFunction">
         <app-test-s [test]=test></app-test-s>
     </div>
 </div>

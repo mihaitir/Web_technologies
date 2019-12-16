@@ -15,6 +15,7 @@ export class CardSComponent implements OnInit {
 
   classroom:Classroom;
   @Input() id:number;
+  
   ngOnInit() {
    this.cardService.getClassroomById(this.id).subscribe((res:Classroom)=>{this.classroom = res});
   }

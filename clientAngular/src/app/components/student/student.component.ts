@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { StudentService } from './student.service';
 import { ClassStud } from '../models/class-stud';
 import { Classroom } from '../models/classroom';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-student',
@@ -15,7 +16,7 @@ export class StudentComponent implements OnInit {
   idStudent: number;
   display: boolean = false;
 
-  constructor(private studentService:StudentService) { }
+  constructor(private studentService:StudentService, private messageService: MessageService) { }
 
   ngOnInit() {
 
@@ -26,7 +27,6 @@ export class StudentComponent implements OnInit {
   }
 
   launchModal() {
-    console.log('launch modal')
     this.display = true;
   }
 
@@ -38,15 +38,18 @@ export class StudentComponent implements OnInit {
       (res:Classroom) =>{
         obj.idClassroom = res.idClassroom;
         this.studentService.enrolToNewClassroom(obj).subscribe(res=>{
-          console.log('Succesfully enroled');
           this.display = false;
+          this.messageService.add({severity:'success', summary:'Service Message', detail:'Successfully enroled'});
         },
         err=>{
           console.log(err)
+          this.display = false;
+          this.messageService.add({severity:'success', summary:'Service Message', detail:'Error'});
         })
       },
       err=>{
-        console.log('cel mai probabil nu exista clasa')
+        this.display = false;
+        this.messageService.add({severity:'success', summary:'Service Message', detail:'Classroom does not exist'});
         console.log(err)
       }
     );

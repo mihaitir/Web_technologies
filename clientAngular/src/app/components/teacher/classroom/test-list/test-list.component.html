@@ -1,6 +1,6 @@
 <div>
     <strong>Available tests: </strong>
-        <div *ngFor="let test of tests">
+        <div *ngFor="let test of tests; trackBy: trackByFunction">
                 <app-test  [test]=test></app-test>
             </div>
         </div>

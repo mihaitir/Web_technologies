@@ -21,7 +21,7 @@ import { TestComponent } from './components/teacher/classroom/test/test.componen
 import { TestDetailComponent } from './components/teacher/classroom/test-detail/test-detail.component';
 import { StudentListComponent } from './components/teacher/classroom/student-list/student-list.component';
 import { ClassroomStudentComponent } from './components/student/classroom-student/classroom-student.component';
-import {MenuItem} from 'primeng/api';                 //api
+import {MenuItem, MessageService} from 'primeng/api';                 //api
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
 import { CardSComponent } from './components/student/classroom-student/card-s/card-s.component';
@@ -31,6 +31,7 @@ import { SolveTestComponent } from './components/student/classroom-student/solve
 import { ResolveQuestionComponent } from './components/student/classroom-student/solve-test/resolve-question/resolve-question.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import {TableModule} from 'primeng/table';
+import {ToastModule} from 'primeng/toast';
 
 
 
@@ -64,19 +65,20 @@ import {TableModule} from 'primeng/table';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule, 
     HttpClientModule,
     BrowserAnimationsModule,
     AccordionModule,
     DialogModule,
     ButtonModule,
     CheckboxModule,
-    TableModule
+    TableModule,
+    ToastModule
 
     
   
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

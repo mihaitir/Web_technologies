@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Classroom } from '../../models/classroom';
 import { TeacherService } from '../../services/teacher.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-add-classroom',
@@ -10,7 +11,7 @@ import { TeacherService } from '../../services/teacher.service';
 })
 export class AddClassroomComponent implements OnInit {
 
-  constructor(private teacherService:TeacherService) { }
+  constructor(private teacherService:TeacherService, private messageService:MessageService) { }
 
   createClassroom = new FormGroup({
     classroomName: new FormControl(''),
@@ -29,7 +30,11 @@ export class AddClassroomComponent implements OnInit {
     classroom.name = this.createClassroom.get('classroomName').value;
     classroom.description = this.createClassroom.get('classroomDescription').value;
     this.teacherService.createClassroom(localStorage.getItem('teacherId'),classroom).subscribe(res=>{
-      console.log('classroom created')});
+      this.messageService.add({key: 'myKey1',severity:'success', summary:'Classroom', detail:'Successfully created'});    
+    },
+    err=>{
+      this.messageService.add({key: 'myKey2', severity:'success', summary:'Classroom', detail:'Error, perhaps classroom exist :D !'});  
+    });
   }
 
 }

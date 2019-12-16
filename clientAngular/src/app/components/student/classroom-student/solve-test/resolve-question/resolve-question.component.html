@@ -1,14 +1,16 @@
 <div class="cardQ">
-{{name}}
+   <strong>Question:  {{name}} </strong>
 <div class="ui-g" style="width:250px;margin-bottom:10px" *ngIf="endTest === false">
         <div class="ui-g-12"><p-checkbox  [value]="v1" [label]="v1" [(ngModel)]="selectedValues"></p-checkbox></div>
         <div class="ui-g-12"><p-checkbox  [value]="v2" [label]="v2" [(ngModel)]="selectedValues"></p-checkbox></div>
         <div class="ui-g-12"><p-checkbox  [value]="v3" [label]="v3" [(ngModel)]="selectedValues"></p-checkbox></div>
         <div class="ui-g-12"><p-checkbox  [value]="v4" [label]="v4" [(ngModel)]="selectedValues"></p-checkbox></div>
     </div>
-<p *ngIf="endTest === false" (click)="nextQuestion()">Next</p>
-</div>
+<div *ngIf="endTest === false" >
 
+<button pButton type="button" icon="pi pi-arrow-right" label="Next question" iconPos="left" (click)="nextQuestion()"></button>
+</div>
+<div>
 <div *ngIf="endTest === true">
-TEST ENDED  
+<strong>End, your score is {{score}}</strong>
 </div>

@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from '../login/login.service';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Account } from '../models/account';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-logon',
@@ -13,7 +14,7 @@ export class LogonComponent implements OnInit {
 
   logonForm:FormGroup;
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,  private messageService: MessageService) { }
   isTeacher = false;
 
   ngOnInit() {
@@ -33,9 +34,14 @@ export class LogonComponent implements OnInit {
     account.username = usern;
     account.password = passs;
     account.isTeacher = this.isTeacher;
-    console.log(JSON.stringify(account))
     
     this.loginService.saveAccount(account).subscribe(
+      res=>{
+        this.messageService.add({key: 'myKey1', severity:'success', summary:'Logon Service', detail:'Account create successfully! :)'});
+      },
+      err=> {
+        this.messageService.add({key: 'myKey2', severity:'error', summary:'Logon Service', detail:'Username is used! :('});
+      }
       
     );
   }

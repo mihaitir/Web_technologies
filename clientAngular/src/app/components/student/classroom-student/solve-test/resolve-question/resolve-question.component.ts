@@ -19,6 +19,8 @@ export class ResolveQuestionComponent implements OnInit {
   @Input() questions:Question[];
   selectedValues: string[] = [];
   numberOfCorrectAnswer : number = 0;
+  score : number;
+
 
   v1 : string;
   v2 : string;
@@ -45,24 +47,21 @@ export class ResolveQuestionComponent implements OnInit {
   }
 
   nextQuestion(){
-    console.log('Respunsul a fost ' + this.verifyAnswer(this.options));
     if(this.verifyAnswer(this.options)) this.numberOfCorrectAnswer = this.numberOfCorrectAnswer + 1;
     this.selectedValues = [];
     this.indexOfCurrentQuestion = this.indexOfCurrentQuestion + 1;
     if (this.indexOfCurrentQuestion >= this.questions.length){
-      this.name = 'Sfarsit test'
       this.endTest = true;
       
       let result = (10*this.numberOfCorrectAnswer) / this.questions.length;
-      console.log('Ai obtiunut nota' + result);
-      console.log(this.studentService.getIdTest() + "@" + localStorage.getItem('studentId'))
+      this.score = result;
+     
       let studTest : StudTest = new StudTest();
       studTest.idStudent = +localStorage.getItem('studentId');
       studTest.idTest = this.studentService.getIdTest();
       studTest.score = result;
       studTest.idClassroom = this.studentService.getIdClassroom();
       studTest.done = true;
-      console.log(studTest);
       this.studentService.saveTestResult(studTest).subscribe(
         (res:any)=>{
           console.log(res)

@@ -3,6 +3,7 @@
 
     <div class="row">
 
+        <!-- doesn't requierd polling on server, because the creation of another classroom it;s realized on another component tab... -->
     <div *ngFor="let classroom of classrooms">
        <app-card [id]="classroom.idClassroom"> </app-card> 
       </div>

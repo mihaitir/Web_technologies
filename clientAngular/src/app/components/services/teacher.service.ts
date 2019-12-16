@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Classroom } from '../models/classroom';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class TeacherService {
   constructor(private httpClient: HttpClient) { }
 
   getClassroomsByTeacherId() {
-    return this.httpClient.get('//localhost:8090/classroom/classes/t'); //change t... in the future.
+    return this.httpClient.get('http://'+ environment.ip + ':8090/classroom/classes/t'); //change t... in the future.
   }
 
   createClassroom(idTeacher: string, classroom: Classroom) {
-    return this.httpClient.post('//localhost:8090/classroom/add/' + idTeacher, JSON.stringify(classroom), this.headerWithApplicationNJSON());
+    return this.httpClient.post('http://'+ environment.ip + ':8090/classroom/add/' + idTeacher, JSON.stringify(classroom), this.headerWithApplicationNJSON());
   }
 
   headerWithApplicationNJSON() {

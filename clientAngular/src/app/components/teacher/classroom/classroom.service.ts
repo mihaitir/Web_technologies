@@ -2,81 +2,82 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Test } from '../../models/test';
 import { Question } from '../../models/question';
-import { Option} from '../../models/option';
+import { Option } from '../../models/option';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClassroomService {
 
-  idClassroom : number;
+  idClassroom: number;
   idCurrentTest: number;
   idCurrentQuestion: number;
-  cureentSelectedTest : Test;
-  constructor(private httpClient:HttpClient) { }
+  cureentSelectedTest: Test;
+  constructor(private httpClient: HttpClient) { }
 
-  setIdClassroom(idClassroom: number){
+  setIdClassroom(idClassroom: number) {
     this.idClassroom = idClassroom;
   }
 
-  getIdClassroom(): number{
+  getIdClassroom(): number {
     return this.idClassroom;
   }
 
-  setIdCurrentTest(idCurrentTest:number){
+  setIdCurrentTest(idCurrentTest: number) {
     this.idCurrentTest = idCurrentTest;
   }
 
-  getIdCurrentTest(): number{
+  getIdCurrentTest(): number {
     return this.idCurrentTest
   }
 
-  setIdCurrentQuestion(idCurrentQuestion: number){
+  setIdCurrentQuestion(idCurrentQuestion: number) {
     this.idCurrentQuestion = idCurrentQuestion;
   }
 
-  getIdCurrentQuestion():number{
+  getIdCurrentQuestion(): number {
     return this.idCurrentQuestion;
   }
 
-  setcureentSelectedTest(cureentSelectedTest:Test){
+  setcureentSelectedTest(cureentSelectedTest: Test) {
     this.cureentSelectedTest = cureentSelectedTest;
   }
 
-  getCureentSelectedTest():Test{
+  getCureentSelectedTest(): Test {
     return this.cureentSelectedTest;
   }
 
-  saveTest(test:Test){
-    return this.httpClient.post('http://localhost:8090/test', test);
+  saveTest(test: Test) {
+    return this.httpClient.post('http://' + environment.ip + ':8090/test', test);
   }
 
-  saveQuestion(question:Question){
-    return this.httpClient.post('http://localhost:8090/question', question);
+  saveQuestion(question: Question) {
+    return this.httpClient.post('http://' + environment.ip + ':8090/question', question);
   }
 
-  saveOption(option:Option){
-    return this.httpClient.post('http://localhost:8090/option', option);
+  saveOption(option: Option) {
+    return this.httpClient.post('http://' + environment.ip + ':8090/option', option);
   }
 
-  getTestsByClassroomId(idClassroom:number){
-    return this.httpClient.get('http://localhost:8090/test/byClassroom/'+ idClassroom);
+  getTestsByClassroomId(idClassroom: number) {
+    return this.httpClient.get('http://' + environment.ip + ':8090/test/byClassroom/' + idClassroom);
   }
 
-  getQuestionsByTestId(idTest:number){
-    return this.httpClient.get('http://localhost:8090/question/' + idTest);
+  getQuestionsByTestId(idTest: number) {
+    return this.httpClient.get('http://' + environment.ip + ':8090/question/' + idTest);
   }
 
-  getOptionsByQuestionId(idQuestion:number){
-    return this.httpClient.get('http://localhost:8090/options/'+idQuestion);
+  getOptionsByQuestionId(idQuestion: number) {
+    return this.httpClient.get('http://' + environment.ip + ':8090/options/' + idQuestion);
   }
 
-  getStudentEnroledByClassroomId(idClassroom: number){
-    return this.httpClient.get('http://localhost:8090/classroom/getStudentsByIdClassroom/' + idClassroom);
+  getStudentEnroledByClassroomId(idClassroom: number) {
+    return this.httpClient.get('http://'+ environment.ip + ':8090/classroom/getStudentsByIdClassroom/' + idClassroom);
   }
 
-  getScoresUsingIdStudentAndIdClassroom(idStudent: number, idClassroom : number){
-    return this.httpClient.get('http://localhost:8090/classroom/getTestsResult2/'+idStudent+'/'+idClassroom);
+  getScoresUsingIdStudentAndIdClassroom(idStudent: number, idClassroom: number) {
+    return this.httpClient.get('http://'+ environment.ip + ':8090/classroom/getTestsResult2/' + idStudent + '/' + idClassroom);
   }
 
 }

@@ -1,22 +1,26 @@
 <div>
-<div style="padding-top: 10%;"><form [formGroup]="createClassroom">
+    <div style="padding-top: 10%;">
+        <form [formGroup]="createClassroom">
 
-    <label>Classroom name:</label>
-    <input type="text" formControlName="classroomName">
+            <label>Classroom name:</label>
+            <input type="text" formControlName="classroomName">
 
-    <br>
-    <label>Classroom key:</label>
-    <input type="text" formControlName="classroomKey">
-    <br>
-        <label>Classroom description:</label>
-        <!-- <input class="heighttext" type="text" formControlName="classroomDescription"> -->
-       
-        
-        <textarea cols="50" formControlName="classroomDescription"></textarea>
-        <br>
-        <br>
-        <button (click)="onSubmit()">Submit</button>
+            <br>
+            <label>Classroom key:</label>
+            <input type="text" formControlName="classroomKey">
+            <br>
+            <label>Classroom description:</label>
+            <!-- <input class="heighttext" type="text" formControlName="classroomDescription"> -->
 
-    </form>
 
-</div>
+            <textarea cols="50" formControlName="classroomDescription"></textarea>
+            <br>
+            <br>
+            <button (click)="onSubmit()">Submit</button>
+
+        </form>
+
+    </div>
+
+    <p-toast key="myKey1"></p-toast>
+    <p-toast key="myKey2"></p-toast>
