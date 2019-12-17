@@ -40,7 +40,6 @@ invalidAccount : boolean = false;
           //we use the id of teacher from database
           localStorage.setItem('teacherId',res.idTeacher.toString())
           localStorage.setItem('isLoggedIn', "true");
-          
           this.router.navigate(['teacher/myClassooms']); })
       }
       else{

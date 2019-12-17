@@ -1,17 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<ul>
+  <li> <a class="nav-link" [routerLink]="['/student/myClassrooms']">Home <span class="sr-only">(current)</span></a></li>
+  <li> <a class="nav-link pointer" (click)="launchModal()">Add Classroom </a></li>
+  <li><a class="nav-link" [routerLink]="['/']">Logout</a></li>
+</ul>
 
-  <ul class="navbar-nav">
-    <li class="nav-item ">
-      <a class="nav-link" [routerLink]="['/student/myClassrooms']">Home <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link pointer" (click)="launchModal()">Add Classroom </a> </li>
-
-    <div class="nav-item">
-      <a class="nav-link" [routerLink]="['/']">Logout</a>
-    </div>
-  </ul>
-</nav>
 <div style="padding-top: 60px;">
   <router-outlet> </router-outlet>
 </div>
